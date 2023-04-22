@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Chivo+Mono:wght@600;700;800;900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  background: url("./images/jeshoots-com-pUAM5hPaCRI-unsplash.jpg");
+  background-size:  cover;
+}
+
+.container{
+  display: grid;
+  place-content: center;
+  height: 100vh;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 50%;  
+  margin: auto;
+  gap: 20px;
+}
+
+.btn{
+  width: 150px;
+  padding: 10px;
+  font-size: 1rem;
+  border-radius: 100px;
+  border: 1px black solid;
+  background-color: white;
+  outline: none;
+  font-family: 'Courier New', Courier, monospace;
+  transition: 0.7s;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.btn:visited{
+  color: black;
+}
+
+.btn:hover{
+  background-color: black;
+  color: white;
+}
+
+.time{
+  font-size: 150px;
+  font-family: Chivo Mono;
+  font-weight: 700;
+  pointer-events: none;
+  color: rgb(10, 10, 10);
+  padding: 0 115px;
+}
+
+.flex-container{
+  grid-column: span 3;
+  display: flex;
+  overflow: hidden;
+}
+
+.start{
+  grid-column: 2/3;
+  font-size: 1.6rem;
+}
+
+.refresh-icon{
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.671);
+  border-radius: 50%;
+}
+
+.refresh-icon:hover{
+  filter: invert(1);
+}
+
+.spotify{
+  height: 100px;
+  width: 400px;
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+}
+
+.close{
+  font-family: monospace;
+  font-size: 1rem;
+  position: absolute;
+  bottom: 130px;
+  left: 30px;
+  cursor: pointer;
+}
+
+.spotify-logo{
+  display: none;
+}
