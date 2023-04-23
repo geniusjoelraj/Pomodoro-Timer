@@ -12,14 +12,19 @@ $(".spotify-logo").click(function() {
   $(".spotify-logo").css("display", "none");
 });
 
-$("#start").click(() =>{
-  timerPomodoro(time)
+$("#start").click(function() {
+  $("#start").removeClass("center");
+  $("#stop").addClass("center");
 });
 
+$("#stop").click(function() {
+  $("#stop").removeClass("center");
+  $("#start").addClass("center");
+});
 
 let tab = "#pomodoro";
 let time = 25;
-let sec = 59;
+let sec = 0;
 
 $("#pomo-btn").click(function() {
   time = '25';
@@ -43,15 +48,11 @@ function decreaseSec() {
   }
   if (sec < 0){
     sec = 59;
-    time--;
+    decreaseMin();
   }
   $(tab+">.sec").text(sec);
   sec--;
-  if (time == 0 && sec <= 0) {
-    clearInterval(decSec);
-    clearInterval(decMin);
-    alert("over");
-  }
+  decSec = setTimeout(decreaseSec, 400);
 }
 
 function decreaseMin() {
@@ -62,11 +63,13 @@ function decreaseMin() {
   $(tab+">.min").text(time);
 }
 
-
 function timerPomodoro() {
-  decMin = setTimeout(decreaseMin, 6000);
-  decSec = setInterval(decreaseSec, 100);
+  decSec = setTimeout(decreaseSec, 0);
 }
+
+$("#start").click(() =>{
+  timerPomodoro(time)
+});
 
 $("#stop").click(() => {
   clearInterval(decSec);
@@ -76,8 +79,6 @@ $("#stop").click(() => {
 $("#reset").click(() => {
   clearInterval(decSec);
   clearInterval(decMin);
-  time = 25;
-  sec = 59;
   $(tab + ">.min").text("25");
   $(tab + ">.sec").text("00");
 });

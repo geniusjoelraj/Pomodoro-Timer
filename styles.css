@@ -29,6 +29,8 @@ body{
   border-radius: 20px;
   background-color: rgb(255, 100, 100);
   box-shadow: black  3px 3px 10px;
+  padding: 3rem;
+  position: relative;
 }
 
 .btn{
@@ -36,14 +38,14 @@ body{
   padding: 10px;
   font-size: 1rem;
   border-radius: 10px;
-  border: 2px black solid;
   background-color: white;
   outline: none;
   font-family: 'Courier New', Courier, monospace;
-  transition: 0.2s;
+  transition: box-shadow 1s;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  border: none;
   color: black;
 }
 
@@ -54,6 +56,24 @@ body{
 .btn:hover{
   background-color: black;
   color: white;
+  box-shadow: rgba(0, 0, 0, 0.534)  3px 3px 6px;
+}
+
+#reset{
+  position: absolute;
+  bottom: 52px;
+  right: 190px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  filter: invert(1);
+  border-radius: 17px;
+  height: 55px;
+}
+
+#reset:hover{
+  filter: invert(0);
+  box-shadow: rgba(0, 0, 0, 0.534)  3px 8px 6px;
 }
 
 .time{
@@ -62,12 +82,14 @@ body{
   font-weight: 700;
   pointer-events: none;
   color: white;
-  padding: 0 115px;
+  margin: auto;
+  padding-top: 20px;
 }
 
 .flex-container{
   grid-column: span 3;
-  display: flex;
+  display: flex;  
+  flex-direction: column;
   overflow: hidden;
 }
 
@@ -105,4 +127,18 @@ body{
 .spotify-logo{
   display: none;
   height: 20px;
+}
+
+.none{
+  display: none;
+}
+
+.center{
+  grid-column: span 3;
+  margin: auto;
+  height: 60px;
+  font-size: 30px;
+  font-weight: 600;
+  padding-top: 15px;
+  display: inline;
 }
