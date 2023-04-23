@@ -12,47 +12,72 @@ $(".spotify-logo").click(function() {
   $(".spotify-logo").css("display", "none");
 });
 
-$("#start").click(timerPomodoro);
+$("#start").click(() =>{
+  timerPomodoro(time)
+});
 
-let pomodoro = 24;
-let shortBreak = 5;
-let longBreak = 10;
+
 let tab = "#pomodoro";
-let btn = "#pomo-btn"
-let time = 24;
+let time = 25;
+let sec = 59;
 
 $("#pomo-btn").click(function() {
-  time = 24;
+  time = '25';
   tab = "#pomodoro";
 });
 
 $("#short-btn").click(function() {
-  time = 4;
+  time = '05';
   tab = "#short-break";
 });
 
 $("#long-btn").click(function() {
-  time = 9;
+  time = '10';
   tab = "#long-break";
 });
 
 
-function timerPomodoro() {
-  let i = 59  ;
-  setInterval(function() {
-    if (time < 10){
-      time = "0"+time;
-    }
-    $(tab).text(time+":00");
-    time--; 
-    i = 59;
-  },60000);
-  setInterval(function() {
-    if (i < 10){
-      i = "0"+i;
-    }
-    $(tab).text(time+":"+i);
-    i--;
-  },1000); 
+function decreaseSec() {
+  if (sec < 10 && sec > -1){
+    sec = "0"+sec;
+  }
+  if (sec < 0){
+    sec = 59;
+    time--;
+  }
+  $(tab+">.sec").text(sec);
+  sec--;
+  if (time == 0 && sec <= 0) {
+    clearInterval(decSec);
+    clearInterval(decMin);
+    alert("over");
+  }
 }
 
+function decreaseMin() {
+  time--;
+  if (time < 10){
+    time = "0"+time;
+  }
+  $(tab+">.min").text(time);
+}
+
+
+function timerPomodoro() {
+  decMin = setTimeout(decreaseMin, 6000);
+  decSec = setInterval(decreaseSec, 100);
+}
+
+$("#stop").click(() => {
+  clearInterval(decSec);
+  clearInterval(decMin);
+});
+
+$("#reset").click(() => {
+  clearInterval(decSec);
+  clearInterval(decMin);
+  time = 25;
+  sec = 59;
+  $(tab + ">.min").text("25");
+  $(tab + ">.sec").text("00");
+});
