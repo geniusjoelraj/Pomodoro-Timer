@@ -113,6 +113,7 @@ body{
   position: absolute;
   bottom: 30px;
   left: 30px;
+  display: none;
 }
 
 .close{
@@ -122,10 +123,11 @@ body{
   bottom: 8px;
   left: 30px;
   cursor: pointer;
+  display: none;
 }
 
 .spotify-logo{
-  display: none;
+  display: inline;
   height: 20px;
 }
 

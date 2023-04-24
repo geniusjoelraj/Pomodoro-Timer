@@ -24,21 +24,28 @@ $("#stop").click(function() {
 
 let tab = "#pomodoro";
 let time = 25;
-let sec = 0;
+let sec = 59;
+let ctime = 25;
 
 $("#pomo-btn").click(function() {
   time = '25';
   tab = "#pomodoro";
+  ctime = '25';
+  reset();
 });
 
 $("#short-btn").click(function() {
   time = '05';
   tab = "#short-break";
+  ctime = '05';
+  reset();
 });
 
 $("#long-btn").click(function() {
   time = '10';
   tab = "#long-break";
+  ctime = '10';
+  reset();
 });
 
 
@@ -52,7 +59,7 @@ function decreaseSec() {
   }
   $(tab+">.sec").text(sec);
   sec--;
-  decSec = setTimeout(decreaseSec, 400);
+  decSec = setTimeout(decreaseSec, 1000);
 }
 
 function decreaseMin() {
@@ -65,6 +72,7 @@ function decreaseMin() {
 
 function timerPomodoro() {
   decSec = setTimeout(decreaseSec, 0);
+  decreaseMin();
 }
 
 $("#start").click(() =>{
@@ -73,12 +81,19 @@ $("#start").click(() =>{
 
 $("#stop").click(() => {
   clearInterval(decSec);
-  clearInterval(decMin);
+  time++;
 });
 
-$("#reset").click(() => {
+function reset() {
   clearInterval(decSec);
-  clearInterval(decMin);
-  $(tab + ">.min").text("25");
+  time = ctime;
+  sec = 59;
+  $(tab + ">.min").text(ctime);
   $(tab + ">.sec").text("00");
+  $("#stop").removeClass("center");
+  $("#start").addClass("center");
+}
+
+$("#reset").click(() => {
+  reset();
 });
