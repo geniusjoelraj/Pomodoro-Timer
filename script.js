@@ -45,7 +45,7 @@ $("#long-btn").click(function() {
   time = '10';
   tab = "#long-break";
   ctime = '10';
-  reset();
+  reset();  
 });
 
 

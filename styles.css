@@ -20,9 +20,9 @@ body{
 .container{
   display: grid;
   place-content: center;
-  height: 100%;
+  width: 700px;
+  height: 420px;
   grid-template-columns: 1fr 1fr 1fr;
-  width: 50%;  
   margin: auto;
   gap: 20px;
   padding-left: 50px;
@@ -34,7 +34,7 @@ body{
 }
 
 .btn{
-  width: 150px;
+  width: 90%;
   padding: 10px;
   font-size: 1rem;
   border-radius: 10px;
@@ -47,6 +47,8 @@ body{
   cursor: pointer;
   border: none;
   color: black;
+  display: grid;
+  place-content: center;
 }
 
 .btn:visited{
@@ -62,7 +64,7 @@ body{
 #reset{
   position: absolute;
   bottom: 52px;
-  right: 190px;
+  right: 25px;
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -93,18 +95,10 @@ body{
   overflow: hidden;
 }
 
-.start{
-  grid-column: 2/3;
-  font-size: 1.6rem;
-  padding-top: 13px;
-}
-
 .refresh-icon{
   cursor: pointer;
   border-radius: 50%;
   filter: invert(1);
-  position: relative;
-  right: 70px;
 }
 
 .spotify{
@@ -136,11 +130,22 @@ body{
 }
 
 .center{
-  grid-column: span 3;
+  grid-column: 2 / 2;
   margin: auto;
   height: 60px;
+  margin-top: 20px;
   font-size: 30px;
   font-weight: 600;
   padding-top: 15px;
   display: inline;
+}
+
+@media all and (max-width: 600px) {
+  .container{
+    width: 100%;
+  }
+
+  .time{
+    font-size: 100px;
+  }
 }
