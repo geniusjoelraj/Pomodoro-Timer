@@ -15,6 +15,8 @@ body{
   background-color: rgb(214, 74, 74);
   height: 100vh;
   padding: 120px 0;
+  display: grid;
+  place-content: center;
 }
 
 .container{
